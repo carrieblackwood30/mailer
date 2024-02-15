@@ -30,7 +30,10 @@ server.post("/api/feedback", async (req, res) => {
             from: "meirzhan.zhantis@bk.ru",
             to: "meirzhan.zhantis@bk.ru",
             subject: "them",
-            text: `${name} ${phone} ${message}`
+            text: message,
+            html:`<p>name: ${name}</p>
+                  <p>phone: ${phone}</p>
+                  <p>Message: ${message}</p>`
         })
 
         return res.status(200).send({
@@ -47,5 +50,5 @@ server.post("/api/feedback", async (req, res) => {
 })
 
 server.listen(PORT, () =>[
-    console.log(`listening port: ${PORT}`)
+    console.log(`http://127.0.0.1:${PORT}`)
 ])
